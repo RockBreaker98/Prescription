@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrescriptionApp.Models;
 
@@ -10,9 +11,11 @@ using PrescriptionApp.Models;
 namespace Prescription.Migrations
 {
     [DbContext(typeof(PrescriptionContext))]
-    partial class PrescriptionContextModelSnapshot : ModelSnapshot
+    [Migration("20250929022222_AddSlug")]
+    partial class AddSlug
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");

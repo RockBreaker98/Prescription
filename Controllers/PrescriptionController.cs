@@ -32,6 +32,8 @@ namespace PrescriptionApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                prescription.MedicationName = prescription.MedicationName.ToLower();
+                prescription.GenerateSlug();
                 _context.Prescriptions.Add(prescription);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -58,6 +60,8 @@ namespace PrescriptionApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                prescription.MedicationName = prescription.MedicationName.ToLower();
+                prescription.GenerateSlug();
                 _context.Prescriptions.Update(prescription);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -87,12 +91,13 @@ namespace PrescriptionApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        
+
         // GET: Index
         [HttpGet]
         public IActionResult Index()
         {
             return RedirectToAction("Index", "Home");
         }
+        
     }
 }

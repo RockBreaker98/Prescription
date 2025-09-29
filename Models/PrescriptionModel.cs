@@ -20,15 +20,13 @@ namespace PrescriptionApp.Models
 
         [Required]
         public DateTime RequestTime { get; set; }
+              public string Slug { get; set; } = string.Empty;   // will be saved in DB
 
-               public string Slug
-        {
-            get
-            {
-                return string.IsNullOrWhiteSpace(MedicationName)
-                    ? string.Empty
-                    : MedicationName.Replace(" ", "-").ToLower();
-            }
+// optional helper – call it in controller so you never forget
+        public void GenerateSlug() =>
+            Slug = string.IsNullOrWhiteSpace(MedicationName)
+                ? string.Empty
+                : MedicationName.ToLower().Replace(" ", "-");
         }
-    }
+
 }
