@@ -7,7 +7,9 @@
 <h2>Prescriptions</h2>
 
 <div class="mb-3">
-    <a class="btn btn-primary" asp-controller="Prescription" asp-action="Add">Add New Prescription</a>
+    <a class="btn btn-primary" asp-controller="Prescription" asp-action="Add">
+        Add New Prescription
+    </a>
 </div>
 
 <table class="table table-bordered table-striped">
@@ -17,7 +19,7 @@
             <th>Fill Status</th>
             <th>Cost</th>
             <th>Request Date</th>
-            <th></th>
+            <th style="width:140px;"></th>
         </tr>
     </thead>
     <tbody>
@@ -29,11 +31,22 @@
             <td>@item.Cost.ToString("0.00")</td>
             <td>@item.RequestTime.ToString("MM/dd/yyyy HH:mm")</td>
             <td>
-                <a asp-controller="Prescription" asp-action="Edit" asp-route-id="@item.PrescriptionId" asp-route-slug="@item.Slug">Edit</a> |
-                <a asp-controller="Prescription" asp-action="Delete" asp-route-id="@item.PrescriptionId" asp-route-slug="@item.Slug">Delete</a>
+                <a asp-controller="Prescription"
+                   asp-action="Edit"
+                   asp-route-id="@item.PrescriptionId"
+                   asp-route-slug="@item.Slug">
+                    Edit
+                </a>
+                |
+                <a asp-controller="Prescription"
+                   asp-action="Delete"
+                   asp-route-id="@item.PrescriptionId"
+                   asp-route-slug="@item.Slug"
+                   onclick="return confirm('Are you sure you want to delete this prescription?');">
+                    Delete
+                </a>
             </td>
         </tr>
     }
     </tbody>
 </table>
-

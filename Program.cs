@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 
 if (!builder.Environment.IsDevelopment())
 {
-    var home = Environment.GetEnvironmentVariable("HOME");   // Linux: /home ; Windows on App Service: D:\home
+    var home = Environment.GetEnvironmentVariable("HOME");   
     if (!string.IsNullOrWhiteSpace(home))
     {
         var dataDir = Path.Combine(home, "data");

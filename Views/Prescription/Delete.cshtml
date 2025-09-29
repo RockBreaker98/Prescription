@@ -23,8 +23,8 @@
     </dl>
 </div>
 
-<form asp-action="Delete" method="post">
+<form asp-action="Delete" asp-route-id="@Model.PrescriptionId" method="post">
     <input type="hidden" asp-for="PrescriptionId" />
     <button type="submit" class="btn btn-danger">Delete</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
